@@ -1,6 +1,6 @@
 # Clinical Workflow Signal Audit
 
-A healthcare workflow intelligence demo for reducing ICU escalation delays caused by fragmented clinical signals.
+Healthcare workflow intelligence demo for auditing ICU signal-to-action latency, escalation SLAs, data quality gaps, and role-based dashboard logic using synthetic data.
 
 ## Overview
 
