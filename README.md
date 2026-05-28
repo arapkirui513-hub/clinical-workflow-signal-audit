@@ -2,6 +2,12 @@
 
 Healthcare workflow intelligence demo for auditing ICU signal-to-action latency, escalation SLAs, data quality gaps, and role-based dashboard logic using synthetic data.
 
+## Live Portfolio Case Study
+
+View the published case study here:
+
+https://workflow-signal-audit.lovable.app
+
 ## Overview
 
 ICU teams receive signals from bedside monitors, lab systems, EMR notes, ventilators, alarms, handoffs, and clinician assessments. These signals often sit across fragmented systems, causing delayed escalation, missed trends, incomplete documentation, and poor visibility during shift changes.
