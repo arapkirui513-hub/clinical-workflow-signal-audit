@@ -1,0 +1,110 @@
+{
+    "workflow_volume": {
+        "workflow_events": 500,
+        "unique_patients": 497
+    },
+    "workflow_tiers": {
+        "Activate": 36,
+        "Escalate": 89,
+        "Monitor": 218,
+        "Review": 157
+    },
+    "hospital_units": {
+        "Emergency Department": 50,
+        "HDU": 80,
+        "ICU": 290,
+        "Medical Ward": 50,
+        "Surgical Ward": 30
+    },
+    "signal_types": {
+        "Blood Pressure": 102,
+        "Heart Rate": 110,
+        "Lactate": 50,
+        "Oxygen Saturation": 75,
+        "Respiratory Rate": 99,
+        "Temperature": 64
+    },
+    "escalation_states": {
+        "Acknowledged": 109,
+        "Completed": 352,
+        "Pending": 39
+    },
+    "routing": {
+        "mean": 1.18,
+        "maximum": 3
+    },
+    "latency": {
+        "mean": 34.4,
+        "median": 36.0,
+        "minimum": 3,
+        "maximum": 67,
+        "std_dev": 14.36
+    },
+    "latency_by_workflow_tier": {
+        "Activate": {
+            "events": 36,
+            "mean": 10.1,
+            "median": 10.0,
+            "minimum": 3,
+            "maximum": 16
+        },
+        "Escalate": {
+            "events": 89,
+            "mean": 17.2,
+            "median": 17.0,
+            "minimum": 10,
+            "maximum": 27
+        },
+        "Monitor": {
+            "events": 218,
+            "mean": 47.2,
+            "median": 47.0,
+            "minimum": 32,
+            "maximum": 67
+        },
+        "Review": {
+            "events": 157,
+            "mean": 32.1,
+            "median": 32.0,
+            "minimum": 20,
+            "maximum": 45
+        }
+    },
+    "sla": {
+        "breaches": 181,
+        "compliance_percent": 63.8
+    },
+    "sla_by_workflow_tier": {
+        "Activate": {
+            "events": 36,
+            "breaches": 33,
+            "compliance_percent": 8.3
+        },
+        "Escalate": {
+            "events": 89,
+            "breaches": 54,
+            "compliance_percent": 39.3
+        },
+        "Monitor": {
+            "events": 218,
+            "breaches": 0,
+            "compliance_percent": 100.0
+        },
+        "Review": {
+            "events": 157,
+            "breaches": 94,
+            "compliance_percent": 40.1
+        }
+    },
+    "data_quality": {
+        "records_with_issues": 500,
+        "percentage": 100.0,
+        "breakdown": {
+            "Backdated Vital": 14,
+            "Clock Drift": 12,
+            "Duplicate Record": 20,
+            "Missing Documentation": 8,
+            "Missing Lab": 20
+        }
+    }
+}
