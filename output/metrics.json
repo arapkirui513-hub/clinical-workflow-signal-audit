@@ -97,14 +97,15 @@
         }
     },
     "data_quality": {
-        "records_with_issues": 500,
-        "percentage": 100.0,
+        "records_with_issues": 74,
+        "percentage": 14.8,
         "breakdown": {
             "Backdated Vital": 14,
             "Clock Drift": 12,
             "Duplicate Record": 20,
             "Missing Documentation": 8,
-            "Missing Lab": 20
+            "Missing Lab": 20,
+            "No Issue": 426
         }
     }
 }

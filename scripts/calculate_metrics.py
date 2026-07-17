@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Hashable
 
 import pandas as pd
 
@@ -179,7 +180,7 @@ def calculate_metrics(df: pd.DataFrame) -> dict:
         ),
     }
 
-    data_quality_breakdown = (
+    data_quality_breakdown: dict[Hashable, int] = (
         df["data_quality_issue"]
         .value_counts()
         .sort_index()
@@ -188,7 +189,7 @@ def calculate_metrics(df: pd.DataFrame) -> dict:
 
     records_with_issues = (
         workflow_events
-        - data_quality_breakdown.get("None", 0)
+        - data_quality_breakdown.get("No Issue", 0)
     )
 
     data_quality = {

@@ -45,8 +45,8 @@ Generated from `data\generated\synthetic_icu_workflow.csv`
 - Range: 20–45 min
 
 ## Data Quality
-- Records with issues: 500
-- Percentage affected: 100.0%
+- Records with issues: 74
+- Percentage affected: 14.8%
 
 ## Generated Files
 - JSON: `output\metrics.json`

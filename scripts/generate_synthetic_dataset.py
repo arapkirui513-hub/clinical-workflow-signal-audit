@@ -95,7 +95,7 @@ ESCALATION_WEIGHTS = [
 ]
 
 DATA_QUALITY_ISSUES = [
-    "None",
+    "No Issue",
     "Missing Lab",
     "Clock Drift",
     "Backdated Vital",
@@ -560,8 +560,10 @@ def print_simulation_summary(
     print()
 
     dq_issues = (
-        df["data_quality_issue"] != "None"
-    ).sum()
+        df["data_quality_issue"]
+        .ne("No Issue")
+        .sum()
+    )
 
     print(f"Data Quality Issues  : {dq_issues}")
 
