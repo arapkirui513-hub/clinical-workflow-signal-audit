@@ -2,7 +2,7 @@
 
 > **Status:** Case Study
 
-Healthcare workflow intelligence demo for auditing ICU signal-to-action latency, escalation SLAs, data quality gaps, and role-based dashboard logic using synthetic data.
+Healthcare workflow analytics demo for auditing ICU signal-to-action latency, escalation SLAs, data quality gaps, and human review.
 
 ## Live Portfolio Case Study
 
