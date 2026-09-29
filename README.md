@@ -1,6 +1,6 @@
 # Clinical Workflow Signal Audit
 
-> **Status:** Case Study  Synthetic Healthcare Workflow Backend
+> **Status:** Case Study - Synthetic Healthcare Workflow Backend
 
 A synthetic ICU workflow audit backend for tracking signal-to-action latency, escalation states, data quality, and operational workflow visibility.
 
@@ -66,7 +66,7 @@ This project demonstrates:
 
 ## Architecture
 
-``text
+```text
 Synthetic ICU Workflow Events
           |
           v
@@ -98,7 +98,7 @@ Synthetic ICU Workflow Events
           |
           v
    Tests + FHIR Validation
-```text
+```
 
 ### Architectural Boundary
 
@@ -120,12 +120,26 @@ This separation keeps:
 
 ```text
 Workflow Event
-
-
+      |
+      v
 Signal Generated
-
-
+      |
+      v
 Signal Detected
+      |
+      v
+Workflow Tier
+Monitor | Review | Escalate | Activate
+      |
+      v
+Escalation State
+Pending -> Acknowledged -> Completed
+      |
+      v
+Action Timestamps
+      |
+      v
+Signal-to-Action Audit
 
 
 Workflow Tier
@@ -404,14 +418,14 @@ The workflow uses an explicit state model:
 
 ```text
 Pending
-
-
+   |
+   v
 Acknowledged
-
-
+   |
+   v
 Action Initiated
-
-
+   |
+   v
 Completed
 ```
 
@@ -431,9 +445,11 @@ Conceptually:
 
 ```text
 event_id
-
+   |
+   v
 UUIDv5
-
+   |
+   v
 FHIR Task.id
 ```
 
@@ -480,11 +496,14 @@ The architecture intentionally separates:
 
 ```text
 Data
-
+   |
+   v
 Deterministic Workflow Logic
-
+   |
+   v
 Operational State
-
+   |
+   v
 Human Review / Action
 ```
 
