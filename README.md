@@ -1,6 +1,6 @@
 # Clinical Workflow Signal Audit
 
-> **Status:** Case Study · Synthetic Healthcare Workflow Backend
+> **Status:** Case Study  Synthetic Healthcare Workflow Backend
 
 A synthetic ICU workflow audit backend for tracking signal-to-action latency, escalation states, data quality, and operational workflow visibility.
 
@@ -66,38 +66,39 @@ This project demonstrates:
 
 ## Architecture
 
-```text
+``text
 Synthetic ICU Workflow Events
-            â”‚
-            â–¼
-     Workflow Audit Model
-            â”‚
-            â”œâ”€â”€ Data Quality
-            â”‚
-            â”œâ”€â”€ Signal-to-Action Latency
-            â”‚
-            â”œâ”€â”€ Workflow Risk Tier
-            â”‚
-            â””â”€â”€ Escalation State
-                    â”‚
-                    â–¼
-        Deterministic Workflow Logic
-                    â”‚
-                    â–¼
-        FHIR Interoperability Layer
-          â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-          â–¼         â–¼         â–¼
-       Patient  Observation  Task
-          â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                    â–¼
-                  Bundle
-                    â”‚
-                    â–¼
-             FastAPI /fhir API
-                    â”‚
-                    â–¼
-        Tests + FHIR Validation
-````
+          |
+          v
+   Workflow Audit Model
+          |
+          +-- Data Quality
+          |
+          +-- Signal-to-Action Latency
+          |
+          +-- Workflow Risk Tier
+          |
+          +-- Escalation State
+          |
+          v
+   Deterministic Workflow Logic
+          |
+          v
+   FHIR Interoperability Layer
+          |
+          +-- Patient
+          +-- Observation
+          +-- Task
+          |
+          v
+        Bundle
+          |
+          v
+   FastAPI /fhir API
+          |
+          v
+   Tests + FHIR Validation
+```text
 
 ### Architectural Boundary
 
@@ -119,25 +120,25 @@ This separation keeps:
 
 ```text
 Workflow Event
-      â”‚
-      â–¼
+
+
 Signal Generated
-      â”‚
-      â–¼
+
+
 Signal Detected
-      â”‚
-      â–¼
+
+
 Workflow Tier
 Monitor | Review | Escalate | Activate
-      â”‚
-      â–¼
+
+
 Escalation State
-Pending â†’ Acknowledged â†’ Completed
-      â”‚
-      â–¼
+Pending  Acknowledged  Completed
+
+
 Action Timestamps
-      â”‚
-      â–¼
+
+
 Signal-to-Action Audit
 ```
 
@@ -220,25 +221,25 @@ For example:
 
 ```text
 Pending + no action timestamps
-        â†“
+
 FHIR Task: requested
 ```
 
 ```text
 Acknowledged + no action start
-        â†“
+
 FHIR Task: accepted
 ```
 
 ```text
 Acknowledged + action started
-        â†“
+
 FHIR Task: in-progress
 ```
 
 ```text
 Completed + completion timestamp
-        â†“
+
 FHIR Task: completed
 ```
 
@@ -262,10 +263,10 @@ The workflow Bundle packages the related:
 
 ```text
 Patient
-   â”‚
-   â”œâ”€â”€ Observation
-   â”‚
-   â””â”€â”€ Task
+
+    Observation
+
+    Task
 ```
 
 The Bundle uses canonical resource references so that relationships between resources remain explicit.
@@ -403,14 +404,14 @@ The workflow uses an explicit state model:
 
 ```text
 Pending
-   â”‚
-   â–¼
+
+
 Acknowledged
-   â”‚
-   â–¼
+
+
 Action Initiated
-   â”‚
-   â–¼
+
+
 Completed
 ```
 
@@ -430,9 +431,9 @@ Conceptually:
 
 ```text
 event_id
-   â†“
+
 UUIDv5
-   â†“
+
 FHIR Task.id
 ```
 
@@ -479,11 +480,11 @@ The architecture intentionally separates:
 
 ```text
 Data
-  â†“
+
 Deterministic Workflow Logic
-  â†“
+
 Operational State
-  â†“
+
 Human Review / Action
 ```
 
@@ -575,59 +576,59 @@ The repository intentionally retains informational validator warnings and notes 
 
 ```text
 clinical-workflow-signal-audit/
-â”‚
-â”œâ”€â”€ README.md
-â”‚
-â”œâ”€â”€ app/
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”‚
-â”‚   â”œâ”€â”€ fhir/
-â”‚   â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”‚   â”œâ”€â”€ observation.py
-â”‚   â”‚   â”œâ”€â”€ patient.py
-â”‚   â”‚   â”œâ”€â”€ routes.py
-â”‚   â”‚   â”œâ”€â”€ synthetic_events.py
-â”‚   â”‚   â”œâ”€â”€ task.py
-â”‚   â”‚   â””â”€â”€ workflow_bundle.py
-â”‚   â”‚
-â”‚   â””â”€â”€ main.py
-â”‚
-â”œâ”€â”€ data/
-â”‚   â””â”€â”€ generated/
-â”‚       â””â”€â”€ synthetic_icu_workflow.csv
-â”‚
-â”œâ”€â”€ docs/
-â”‚   â”œâ”€â”€ case_study.md
-â”‚   â”œâ”€â”€ dashboard_spec.md
-â”‚   â”œâ”€â”€ risk_tiering_logic.md
-â”‚   â””â”€â”€ responsible_ai.md
-â”‚
-â”œâ”€â”€ scripts/
-â”‚   â”œâ”€â”€ generate_fhir_validation_samples.py
-â”‚   â””â”€â”€ validate_fhir.ps1
-â”‚
-â”œâ”€â”€ sql/
-â”‚   â””â”€â”€ postgres_schema.sql
-â”‚
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ test_observation.py
-â”‚   â”œâ”€â”€ test_patient.py
-â”‚   â”œâ”€â”€ test_synthetic_events.py
-â”‚   â”œâ”€â”€ test_task.py
-â”‚   â””â”€â”€ test_workflow_bundle.py
-â”‚
-â”œâ”€â”€ validation/
-â”‚   â”œâ”€â”€ Bundle-validation.json
-â”‚   â”œâ”€â”€ Observation-validation.json
-â”‚   â”œâ”€â”€ Patient-validation.json
-â”‚   â”œâ”€â”€ Task-validation.json
-â”‚   â””â”€â”€ codesystems/
-â”‚       â”œâ”€â”€ CodeSystem-escalation-state.json
-â”‚       â”œâ”€â”€ CodeSystem-record-kind.json
-â”‚       â”œâ”€â”€ CodeSystem-signal-type.json
-â”‚       â””â”€â”€ CodeSystem-workflow-tier.json
-â”‚
-â””â”€â”€ ...
+
+ README.md
+
+ app/
+    __init__.py
+
+    fhir/
+       __init__.py
+       observation.py
+       patient.py
+       routes.py
+       synthetic_events.py
+       task.py
+       workflow_bundle.py
+
+    main.py
+
+ data/
+    generated/
+        synthetic_icu_workflow.csv
+
+ docs/
+    case_study.md
+    dashboard_spec.md
+    risk_tiering_logic.md
+    responsible_ai.md
+
+ scripts/
+    generate_fhir_validation_samples.py
+    validate_fhir.ps1
+
+ sql/
+    postgres_schema.sql
+
+ tests/
+    test_observation.py
+    test_patient.py
+    test_synthetic_events.py
+    test_task.py
+    test_workflow_bundle.py
+
+ validation/
+    Bundle-validation.json
+    Observation-validation.json
+    Patient-validation.json
+    Task-validation.json
+    codesystems/
+        CodeSystem-escalation-state.json
+        CodeSystem-record-kind.json
+        CodeSystem-signal-type.json
+        CodeSystem-workflow-tier.json
+
+ ...
 ```
 
 ---
@@ -778,19 +779,19 @@ It demonstrates the progression from:
 
 ```text
 Healthcare Workflow Problem
-          â†“
+
 Synthetic Event Model
-          â†“
+
 Deterministic Workflow Logic
-          â†“
+
 API Representation
-          â†“
+
 FHIR Interoperability
-          â†“
+
 Automated Testing
-          â†“
+
 External Validation
-          â†“
+
 Portfolio Case Study
 ```
 
