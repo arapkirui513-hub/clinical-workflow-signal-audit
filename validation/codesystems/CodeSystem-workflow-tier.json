@@ -1,0 +1,29 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "workflow-tier",
+  "url": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/workflow-tier",
+  "version": "1.0.0",
+  "name": "ClinicalWorkflowSignalAuditWorkflowTier",
+  "title": "Clinical Workflow Signal Audit Workflow Tier",
+  "status": "active",
+  "content": "complete",
+  "caseSensitive": true,
+  "concept": [
+    {
+      "code": "monitor",
+      "display": "Monitor"
+    },
+    {
+      "code": "review",
+      "display": "Review"
+    },
+    {
+      "code": "escalate",
+      "display": "Escalate"
+    },
+    {
+      "code": "activate",
+      "display": "Activate"
+    }
+  ]
+}

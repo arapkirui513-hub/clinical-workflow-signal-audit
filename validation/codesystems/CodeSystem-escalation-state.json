@@ -1,0 +1,25 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "escalation-state",
+  "url": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/escalation-state",
+  "version": "1.0.0",
+  "name": "ClinicalWorkflowSignalAuditEscalationState",
+  "title": "Clinical Workflow Signal Audit Escalation State",
+  "status": "active",
+  "content": "complete",
+  "caseSensitive": true,
+  "concept": [
+    {
+      "code": "pending",
+      "display": "Pending"
+    },
+    {
+      "code": "acknowledged",
+      "display": "Acknowledged"
+    },
+    {
+      "code": "completed",
+      "display": "Completed"
+    }
+  ]
+}

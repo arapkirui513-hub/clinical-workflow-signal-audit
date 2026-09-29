@@ -1,0 +1,17 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "record-kind",
+  "url": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/record-kind",
+  "version": "1.0.0",
+  "name": "ClinicalWorkflowSignalAuditRecordKind",
+  "title": "Clinical Workflow Signal Audit Record Kind",
+  "status": "active",
+  "content": "complete",
+  "caseSensitive": true,
+  "concept": [
+    {
+      "code": "workflow-signal",
+      "display": "Workflow signal"
+    }
+  ]
+}

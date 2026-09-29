@@ -1,0 +1,48 @@
+{
+  "resourceType": "Task",
+  "id": "e069c8a9-3150-5905-b5c3-75c1194dd287",
+  "identifier": [
+    {
+      "system": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/identifier/event-id",
+      "value": "validation-event-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/escalation-state",
+        "code": "completed",
+        "display": "Completed"
+      }
+    ],
+    "text": "Completed"
+  },
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/workflow-tier",
+        "code": "review",
+        "display": "Review"
+      }
+    ],
+    "text": "Review"
+  },
+  "focus": {
+    "reference": "Observation/validation-event-001-observation"
+  },
+  "for": {
+    "reference": "Patient/synthetic-patient-001"
+  },
+  "authoredOn": "2026-09-28T20:02:00.000000Z",
+  "executionPeriod": {
+    "start": "2026-09-28T20:05:00.000000Z",
+    "end": "2026-09-28T20:20:00.000000Z"
+  },
+  "note": [
+    {
+      "text": "Synthetic operational task. No owner, requester, or clinical order is implied."
+    }
+  ]
+}

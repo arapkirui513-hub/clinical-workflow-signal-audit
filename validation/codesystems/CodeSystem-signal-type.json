@@ -1,0 +1,37 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "signal-type",
+  "url": "https://github.com/arapkirui513-hub/clinical-workflow-signal-audit/CodeSystem/signal-type",
+  "version": "1.0.0",
+  "name": "ClinicalWorkflowSignalAuditSignalType",
+  "title": "Clinical Workflow Signal Audit Signal Type",
+  "status": "active",
+  "content": "complete",
+  "caseSensitive": true,
+  "concept": [
+    {
+      "code": "heart-rate",
+      "display": "Heart Rate"
+    },
+    {
+      "code": "blood-pressure",
+      "display": "Blood Pressure"
+    },
+    {
+      "code": "respiratory-rate",
+      "display": "Respiratory Rate"
+    },
+    {
+      "code": "oxygen-saturation",
+      "display": "Oxygen Saturation"
+    },
+    {
+      "code": "temperature",
+      "display": "Temperature"
+    },
+    {
+      "code": "lactate",
+      "display": "Lactate"
+    }
+  ]
+}
